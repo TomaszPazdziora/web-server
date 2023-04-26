@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Moje pomiary</title>
+  </head>
+  <body>
+    <h1>Moje pomiary</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Data</th>
+          <th>Czas</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in measurements %}
+        <tr>
+          <td>{{ m.id }}</td>
+          <td>{{ m.data }}</td>
+          <td>{{ m.date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
