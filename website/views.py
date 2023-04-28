@@ -21,11 +21,13 @@ def get_angle():
 
 @views.route('/measurments', methods=["GET", "POST"])
 def get_data():
-    args = request.args
-    data = args.get('data')
-    new_meas = Measurment(data=data)
-    db.session.add(new_meas)
-    db.session.commit()
-
-    measurements = Measurment.query.all()
-    return render_template('measurments.html', measurements=measurements)
+    if request.method == 'GET':     
+        measurements = Measurment.query.all()
+        return render_template('measurments.html', measurements=measurements)
+    
+    if request.method == 'POST':
+        data = request.get_data().decode('utf-8')
+        new_meas = Measurment(data=data)
+        db.session.add(new_meas)
+        db.session.commit()
+        return 'Data added'
