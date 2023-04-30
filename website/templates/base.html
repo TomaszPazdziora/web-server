@@ -14,11 +14,15 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
     />
-    <title>{% block title %}Home{% endblock %}</title>
-    <title> Hello </title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      } 
+      </style>
+    <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
-    <h1> Solar System </h1>
-    <p1> Może i ma dużo funkcjonalności, ale za to żadne z nich nie działa </p1>
+    {% block content %}
+    {% endblock %}
   </body>
 </html>

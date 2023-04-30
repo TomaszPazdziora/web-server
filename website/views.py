@@ -8,7 +8,7 @@ views = Blueprint('views', __name__)
 @views.route('/', methods=["GET", "POST"])
 def hello():
     if request.method == "GET":
-        return render_template("base.html")
+        return render_template("home.html")
     
 
 
@@ -23,7 +23,8 @@ def get_angle():
 def get_data():
     if request.method == 'GET':     
         measurements = Measurment.query.all()
-        return render_template('measurments.html', measurements=measurements)
+        dates = set(m.date.date() for m in measurements)
+        return render_template('measurments.html', measurements=measurements, dates=dates)
     
     if request.method == 'POST':
         data = request.get_data().decode('utf-8')
