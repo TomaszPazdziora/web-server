@@ -5,14 +5,14 @@ from .solar_tracking import getAngle
 
 views = Blueprint('views', __name__)
 
-@views.route('/', methods=["GET", "POST"])
+@views.route('/', methods=["GET"])
 def hello():
     if request.method == "GET":
         return render_template("home.html")
     
 
 
-@views.route('/time', methods=["GET", "POST"])
+@views.route('/time', methods=["GET"])
 def get_angle():
     if request.method == "GET":
         return (getAngle())

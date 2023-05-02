@@ -13,8 +13,10 @@ def getAngle():
 
     # znalezienie elementu zawierającego wartość azymutu
     azimuth_span = soup.find("span", {"id": "azimuth"})
+    altitude_span = soup.find("span", {"id": "altitude"})
 
     # pobranie wartości azymutu ze znacznika span
     azimuth_value = azimuth_span.text.split("°")[0]
+    altitude_value = altitude_span.text.split("°")[0]
 
-    return (azimuth_value)
+    return (azimuth_value + ' ' + altitude_value)
