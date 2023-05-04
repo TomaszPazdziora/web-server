@@ -2,13 +2,16 @@
 {% block title %}Home Page{% endblock %}
 {% block content %}
     <h1 align="center"> Solar System </h1>
-    <p1><center>Może i ma dużo funkcjonalności, ale za to żadne z nich nie działa</center></p1>
+    <ul>
+        <li>Azymut: {{ azimuth }}</li>
+        <li>Wysokość słońca: {{ altitude }}</li>
+      </ul>
     <br />
     <center><div style="height: 50vh; width: 50%;">
         <canvas id="myChart"></canvas>
     </div></center>
  
-    <script>
+    <script> 
         const labels = {{ labels | tojson}};
  
         const data = {

@@ -1,7 +1,7 @@
 from flask import Blueprint, request, render_template, jsonify
 from .models import Measurement
 from . import db
-from .solar_tracking import get_angle
+from .solar_tracking import get_angles, get_altitude, get_azimuth
 
 
 views = Blueprint('views', __name__)    
@@ -12,15 +12,16 @@ def hello():
         measurements = db.session.query(Measurement).all()
         labels = [m.date.strftime('%H:%M') for m in measurements]
         data = [m.data for m in measurements]
-
-        return render_template("home.html", data=data, labels=labels)
+        azimuth = get_azimuth()
+        altitude = get_altitude()
+        return render_template("home.html", data=data, labels=labels, azimuth=azimuth, altitude=altitude)
     
 
 
 @views.route('/angle', methods=["GET"])
 def get_ang():
     if request.method == "GET":
-        return (get_angle())
+        return (get_angles())
     
 
 
