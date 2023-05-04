@@ -5,7 +5,8 @@
   <h1 align="center">Moje pomiary</h1>
   
   {% for date in dates %}
-    <h2>{{ date.strftime('%d.%m.%Y') }}</h2>
+    <h2 class="text-center">{{ date.strftime('%d.%m.%Y') }}</h2>
+    <center>
     <table class="text-center">
 
       <thead>
@@ -17,7 +18,7 @@
       </thead>
 
       <tbody>
-        {% for m in measurements if m.date.date() == date %}
+        {% for m in meas if m.date.date() == date %}
           <tr>
             <td>{{ m.id }}</td>
             <td>{{ m.date.strftime('%H:%M:%S') }}</td>
@@ -25,7 +26,8 @@
           </tr>
         {% endfor %}
       </tbody>
-
     </table>
+    </center>
+    <hr />
   {% endfor %}
 {% endblock %}

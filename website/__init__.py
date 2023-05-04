@@ -6,6 +6,8 @@ db = SQLAlchemy()
 def create_app():
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+    app.config['SECRET_KEY'] = ''
+    app.config["DEBUG"] = True
     db.init_app(app)
     
     from .views import views

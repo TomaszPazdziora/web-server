@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def getAngle():
+def get_angle():
     url = "https://meteogram.pl/slonce/polska/linia/"
 
     # pobranie zawartości strony
