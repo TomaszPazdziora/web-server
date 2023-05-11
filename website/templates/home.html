@@ -6,8 +6,8 @@
         <li>Azymut: {{ azimuth }}</li>
         <li>Wysokość słońca: {{ altitude }}</li>
       </ul>
-    <br />
-    <center><div style="height: 50vh; width: 50%;">
+
+    <center><div style="height: 60vh; width: 60%;">
         <canvas id="myChart"></canvas>
     </div></center>
  
@@ -36,5 +36,25 @@
         );
  
     </script>
+
+    <br /><br /><br />
+    <form method="POST">
+        <h3 align="center">Wybierz dzień dla którego chcesz wyrysować wykres</h3>
+        <center>
+            <div class="form-group">
+                <input
+                type="date"
+                class="form-control"
+                id="date"
+                name="date"
+                placeholder="DD:MM:RRRR"
+                style="width: 140px;"
+                />
+            </div>
+            <button type="Zatwierdź" class="btn btn-primary">Zatwierdź</button>
+        </center>
+    </form>
+    <br />
+
 {% endblock %}
 
